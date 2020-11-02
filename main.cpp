@@ -20,13 +20,24 @@ int main()
     compus << compu1 <<compu2 << compu3 << compu4 << compu5 << compu5 << compu5;
 
     Computadora compu6=Computadora("X571G","Windows","AsusTec",4);
-    Computadora *ptr = compus.busquedaLineal(compu6);
+    // Computadora *ptr = compus.busquedaLineal(compu6);
 
-    if (ptr != nullptr){
-        cout << *ptr << endl;
+    // if (ptr != nullptr){
+    //     cout << *ptr << endl;
+    // }
+    // else{
+    //     cout<< "No existe sry" << endl;
+    // }
+
+    Arreglo <Computadora*> ptrs = compus.buscar_todos(compu6);
+    if (ptrs.size() > 0){
+        for (size_t i = 0; i < ptrs.size(); i++){
+            Computadora *c = ptrs[i];
+            cout<< *c << endl;
+        }
     }
     else{
-        cout<< "No existe sry" << endl;
+        cout<< " No existen coincidencias "<< endl;
     }
 
 
